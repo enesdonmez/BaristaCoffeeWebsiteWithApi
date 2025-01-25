@@ -1,4 +1,5 @@
 ﻿using BaristaCoffee.API.Repositories.TestimonialRepositories;
+using BaristaCoffee.Dto.TestimonialDtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,13 @@ namespace BaristaCoffee.API.Controllers
         {
             var testimonials = await _testimonialRepository.GetAllTestimonialAsync();
             return Ok(testimonials);
+        }
+
+        [HttpPost("CreateTestimonial")]
+        public async Task<IActionResult> CreateTestimonial(CreateTestimonialDto createTestimonialDto)
+        {
+            await _testimonialRepository.CreateTestimonial(createTestimonialDto);
+            return StatusCode(StatusCodes.Status201Created);
         }
     }
 }

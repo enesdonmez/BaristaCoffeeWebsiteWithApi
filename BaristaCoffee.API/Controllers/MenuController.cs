@@ -1,4 +1,5 @@
 ﻿using BaristaCoffee.API.Repositories.MenuRepositories;
+using BaristaCoffee.Dto.MenuDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BaristaCoffee.API.Controllers
@@ -12,6 +13,13 @@ namespace BaristaCoffee.API.Controllers
         {
             var menu = await _menuRepository.GetAllMenuAsync();
             return Ok(menu);
+        }
+
+        [HttpPost("CreateMenuItem")]
+        public async Task<IActionResult> CreateMenuItem(CreateMenuItemDto createMenuItemDto)
+        {
+            await _menuRepository.CreateMenuItem(createMenuItemDto);
+            return Ok("menüye ekleme başarılı.");
         }
     }
 }

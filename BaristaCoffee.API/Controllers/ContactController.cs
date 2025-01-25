@@ -13,7 +13,7 @@ namespace BaristaCoffee.API.Controllers
         public async Task<IActionResult> CreateContact(CreateContactDto createContactDto)
         {
             await _contactRepository.CreateContactAsync(createContactDto);
-            return Ok("eklendi.");
+            return StatusCode(StatusCodes.Status201Created);
         }
     }
 }

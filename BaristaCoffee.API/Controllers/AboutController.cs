@@ -1,5 +1,5 @@
 ﻿using BaristaCoffee.API.Repositories.AboutRepositories;
-using Microsoft.AspNetCore.Http;
+using BaristaCoffee.Dto.AboutDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BaristaCoffee.API.Controllers
@@ -19,6 +19,13 @@ namespace BaristaCoffee.API.Controllers
         {
             var about = await _aboutRepository.GetAbout();
             return Ok(about);
+        }
+
+        [HttpPost("CreateAbout")]
+        public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
+        {
+            await _aboutRepository.CreateAbout(createAboutDto);
+            return StatusCode(StatusCodes.Status201Created);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using BaristaCoffee.API.Repositories.BaristaRepositories;
-using Microsoft.AspNetCore.Http;
+using BaristaCoffee.Dto.BaristaDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BaristaCoffee.API.Controllers
@@ -20,6 +20,13 @@ namespace BaristaCoffee.API.Controllers
         {
             var barista = await _baristaRepository.GetAllBaristaAsync();
             return Ok(barista);
+        }
+
+        [HttpPost("CreateBarista")]
+        public async Task<IActionResult> CreateBarista(CreateBaristaDto createBaristaDto)
+        {
+            await _baristaRepository.CreateBarista(createBaristaDto);
+            return StatusCode(StatusCodes.Status201Created);
         }
     }
 }
