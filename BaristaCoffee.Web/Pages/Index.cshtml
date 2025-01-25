@@ -72,93 +72,45 @@
 }
 
 
+@if (Model.ViewModel?.Barista != null)
+{
+    @foreach(var barista in Model.ViewModel.Barista)
+    {
+        <section class="barista-section section-padding section-bg" id="barista-team">
+            <div class="container">
+                <div class="row justify-content-center">
 
+                    <div class="col-lg-12 col-12 text-center mb-4 pb-lg-2">
+                        <em class="text-white">Creative Baristas</em>
 
-<section class="barista-section section-padding section-bg" id="barista-team">
-    <div class="container">
-        <div class="row justify-content-center">
+                        <h2 class="text-white">Meet People</h2>
+                    </div>
 
-            <div class="col-lg-12 col-12 text-center mb-4 pb-lg-2">
-                <em class="text-white">Creative Baristas</em>
+                    <div class="col-lg-3 col-md-6 col-12 mb-4">
+                        <div class="team-block-wrap">
+                            <div class="team-block-info d-flex flex-column">
+                                <div class="d-flex mt-auto mb-3">
+                                    <h4 class="text-white mb-0">@barista.BaristaName</h4>
 
-                <h2 class="text-white">Meet People</h2>
-            </div>
+                                    <p class="badge ms-4"><em>Barista</em></p>
+                                </div>
 
-            <div class="col-lg-3 col-md-6 col-12 mb-4">
-                <div class="team-block-wrap">
-                    <div class="team-block-info d-flex flex-column">
-                        <div class="d-flex mt-auto mb-3">
-                            <h4 class="text-white mb-0">Steve</h4>
+                                <p class="text-white mb-0">your favourite coffee daily lives tempor.</p>
+                            </div>
 
-                            <p class="badge ms-4"><em>Boss</em></p>
+                            <div class="team-block-image-wrap">
+                                <img src="@barista.ImageUrl" class="team-block-image img-fluid" alt="@barista.BaristaName">
+                            </div>
                         </div>
-
-                        <p class="text-white mb-0">your favourite coffee daily lives tempor.</p>
                     </div>
 
-                    <div class="team-block-image-wrap">
-                        <img src="/barista_cafe/images/team/portrait-elegant-old-man-wearing-suit.jpg" class="team-block-image img-fluid" alt="">
-                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="col-lg-3 col-md-6 col-12 mb-4">
-                <div class="team-block-wrap">
-                    <div class="team-block-info d-flex flex-column">
-                        <div class="d-flex mt-auto mb-3">
-                            <h4 class="text-white mb-0">Sandra</h4>
+    }
+}
 
-                            <p class="badge ms-4"><em>Manager</em></p>
-                        </div>
-
-                        <p class="text-white mb-0">your favourite coffee daily lives.</p>
-                    </div>
-
-                    <div class="team-block-image-wrap">
-                        <img src="/barista_cafe/images/team/cute-korean-barista-girl-pouring-coffee-prepare-filter-batch-brew-pour-working-cafe.jpg" class="team-block-image img-fluid" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-12 mb-4">
-                <div class="team-block-wrap">
-                    <div class="team-block-info d-flex flex-column">
-                        <div class="d-flex mt-auto mb-3">
-                            <h4 class="text-white mb-0">Jackson</h4>
-
-                            <p class="badge ms-4"><em>Senior</em></p>
-                        </div>
-
-                        <p class="text-white mb-0">your favourite coffee daily lives.</p>
-                    </div>
-
-                    <div class="team-block-image-wrap">
-                        <img src="/barista_cafe/images/team/small-business-owner-drinking-coffee.jpg" class="team-block-image img-fluid" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="team-block-wrap">
-                    <div class="team-block-info d-flex flex-column">
-                        <div class="d-flex mt-auto mb-3">
-                            <h4 class="text-white mb-0">Michelle</h4>
-
-                            <p class="badge ms-4"><em>Barista</em></p>
-                        </div>
-
-                        <p class="text-white mb-0">your favourite coffee daily consectetur.</p>
-                    </div>
-
-                    <div class="team-block-image-wrap">
-                        <img src="/barista_cafe/images/team/smiley-business-woman-working-cashier.jpg" class="team-block-image img-fluid" alt="">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 @if (Model.ViewModel?.Menu != null)
 {
@@ -343,114 +295,121 @@
 }
 
 
-<section class="reviews-section section-padding section-bg" id="section_4">
-    <div class="container">
-        <div class="row justify-content-center">
+@if (Model.ViewModel?.Testimonial != null)
+{
+    @foreach (var item in Model.ViewModel.Testimonial)
+    {
+        <section class="reviews-section section-padding section-bg" id="section_4">
+            <div class="container">
+                <div class="row justify-content-center">
 
-            <div class="col-lg-12 col-12 text-center mb-4 pb-lg-2">
-                <em class="text-white">Reviews by Customers</em>
+                    <div class="col-lg-12 col-12 text-center mb-4 pb-lg-2">
+                        <em class="text-white">Reviews by Customers</em>
 
-                <h2 class="text-white">Testimonials</h2>
+                        <h2 class="text-white">Testimonials</h2>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-container timeline-container-left">
+                            <div class="timeline-content">
+                                <div class="reviews-block">
+                                    <div class="reviews-block-image-wrap d-flex align-items-center">
+                                        <img src="/barista_cafe/images/reviews/young-woman-with-round-glasses-yellow-sweater.jpg" class="reviews-block-image img-fluid" alt="">
+
+                                        <div class="">
+                                            <h6 class="text-white mb-0">Sandra</h6>
+                                            <em class="text-white"> Customers</em>
+                                        </div>
+                                    </div>
+
+                                    <div class="reviews-block-info">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                        <div class="d-flex border-top pt-3 mt-4">
+                                            <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
+
+                                            <div class="reviews-group ms-auto">
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-container timeline-container-right">
+                            <div class="timeline-content">
+                                <div class="reviews-block">
+                                    <div class="reviews-block-image-wrap d-flex align-items-center">
+                                        <img src="/barista_cafe/images/reviews/senior-man-white-sweater-eyeglasses.jpg" class="reviews-block-image img-fluid" alt="">
+
+                                        <div class="">
+                                            <h6 class="text-white mb-0">Don</h6>
+                                            <em class="text-white"> Customers</em>
+                                        </div>
+                                    </div>
+
+                                    <div class="reviews-block-info">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                        <div class="d-flex border-top pt-3 mt-4">
+                                            <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
+
+                                            <div class="reviews-group ms-auto">
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-container timeline-container-left">
+                            <div class="timeline-content">
+                                <div class="reviews-block">
+                                    <div class="reviews-block-image-wrap d-flex align-items-center">
+                                        <img src="/barista_cafe/images/reviews/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg" class="reviews-block-image img-fluid" alt="">
+
+                                        <div class="">
+                                            <h6 class="text-white mb-0">Olivia</h6>
+                                            <em class="text-white"> Customers</em>
+                                        </div>
+                                    </div>
+
+                                    <div class="reviews-block-info">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                        <div class="d-flex border-top pt-3 mt-4">
+                                            <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
+
+                                            <div class="reviews-group ms-auto">
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star-fill"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <div class="timeline">
-                <div class="timeline-container timeline-container-left">
-                    <div class="timeline-content">
-                        <div class="reviews-block">
-                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                <img src="/barista_cafe/images/reviews/young-woman-with-round-glasses-yellow-sweater.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                <div class="">
-                                    <h6 class="text-white mb-0">Sandra</h6>
-                                    <em class="text-white"> Customers</em>
-                                </div>
-                            </div>
-
-                            <div class="reviews-block-info">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                <div class="d-flex border-top pt-3 mt-4">
-                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                    <div class="reviews-group ms-auto">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-container timeline-container-right">
-                    <div class="timeline-content">
-                        <div class="reviews-block">
-                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                <img src="/barista_cafe/images/reviews/senior-man-white-sweater-eyeglasses.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                <div class="">
-                                    <h6 class="text-white mb-0">Don</h6>
-                                    <em class="text-white"> Customers</em>
-                                </div>
-                            </div>
-
-                            <div class="reviews-block-info">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                <div class="d-flex border-top pt-3 mt-4">
-                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                    <div class="reviews-group ms-auto">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-container timeline-container-left">
-                    <div class="timeline-content">
-                        <div class="reviews-block">
-                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                <img src="/barista_cafe/images/reviews/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                <div class="">
-                                    <h6 class="text-white mb-0">Olivia</h6>
-                                    <em class="text-white"> Customers</em>
-                                </div>
-                            </div>
-
-                            <div class="reviews-block-info">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                <div class="d-flex border-top pt-3 mt-4">
-                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                    <div class="reviews-group ms-auto">
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+    }
+}
 
 
 <section class="contact-section section-padding" id="section_5">
@@ -463,7 +422,7 @@
             </div>
 
             <div class="col-lg-6 col-12">
-                <form action="#" method="post" class="custom-form contact-form" role="form">
+                <form method="post" class="custom-form contact-form" role="form">
 
                     <div class="row">
 
