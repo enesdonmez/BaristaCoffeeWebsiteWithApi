@@ -1,4 +1,6 @@
+using BaristaCoffee.API.Repositories.AboutRepositories;
 using BaristaCoffee.API.Repositories.BaristaRepositories;
+using BaristaCoffee.API.Repositories.ContactRepositories;
 using Microsoft.Data.SqlClient;
 using Scalar.AspNetCore;
 using System.Data;
@@ -11,14 +13,14 @@ namespace BaristaCoffee.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
             builder.Services.AddScoped<IDbConnection>(sp =>
                          new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             builder.Services.AddScoped<IBaristaRepository, BaristaRepository>();
+            builder.Services.AddScoped<IContactRepository, ContactRepository>();
+            builder.Services.AddScoped<IAboutRepository, AboutRepository>();
 
             var app = builder.Build();
 
