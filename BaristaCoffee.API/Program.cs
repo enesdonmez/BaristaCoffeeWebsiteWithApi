@@ -1,6 +1,8 @@
 using BaristaCoffee.API.Repositories.AboutRepositories;
 using BaristaCoffee.API.Repositories.BaristaRepositories;
 using BaristaCoffee.API.Repositories.ContactRepositories;
+using BaristaCoffee.API.Repositories.MenuRepositories;
+using BaristaCoffee.API.Repositories.TestimonialRepositories;
 using Microsoft.Data.SqlClient;
 using Scalar.AspNetCore;
 using System.Data;
@@ -21,6 +23,8 @@ namespace BaristaCoffee.API
             builder.Services.AddScoped<IBaristaRepository, BaristaRepository>();
             builder.Services.AddScoped<IContactRepository, ContactRepository>();
             builder.Services.AddScoped<IAboutRepository, AboutRepository>();
+            builder.Services.AddScoped<IMenuRepository, MenuRepository>();
+            builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
 
             var app = builder.Build();
 
