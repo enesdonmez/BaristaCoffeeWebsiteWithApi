@@ -8,14 +8,14 @@ namespace BaristaCoffee.Web.ViewModel
 {
     public class IndexViewModel
     {
-        public List<GetAboutDto> About { get; set; }
+        public List<GetAboutDto> About { get; set; } = default!;
 
-        public List<GetAllMenuDto> Menu { get; set; }
+        public List<GetAllMenuDto> Menu { get; set; } = default!;
 
-        public List<GetAllTestimonialDto> Testimonial { get; set; }
+        public List<GetAllTestimonialDto> Testimonial { get; set; } = default!;
 
-        public List<GetAllBaristaDto> Barista { get; set; }
+        public List<GetAllBaristaDto> Barista { get; set; } = default!;
 
-        public CreateContactDto Contact { get; set; }
+        public CreateContactDto Contact { get; set; } = default!;
     }
 }
