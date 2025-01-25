@@ -1,4 +1,4 @@
-﻿using BaristaCoffee.API.Dtos.BaristaDtos;
+﻿using BaristaCoffee.Dto.BaristaDtos;
 
 namespace BaristaCoffee.API.Repositories.BaristaRepositories
 {

@@ -1,4 +1,4 @@
-﻿using BaristaCoffee.API.Dtos.BaristaDtos;
+﻿using BaristaCoffee.Dto.BaristaDtos;
 using Dapper;
 using System.Data;
 
