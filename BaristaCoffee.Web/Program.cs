@@ -1,3 +1,6 @@
+using BaristaCoffee.Web.Services.Concretes;
+using BaristaCoffee.Web.Services.Interfaces;
+
 namespace BaristaCoffee.Web
 {
     public class Program
@@ -9,6 +12,13 @@ namespace BaristaCoffee.Web
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddHttpClient();
+
+            builder.Services.AddScoped<IAboutService, AboutService>();
+            builder.Services.AddScoped<IContactService, ContactService>();
+            builder.Services.AddScoped<IMenuService, MenuService>();
+            builder.Services.AddScoped<IBaristaService, BaristaService>();
+            builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+            
 
             var app = builder.Build();
 
