@@ -1,4 +1,4 @@
-﻿namespace BaristaCoffee.API.Dtos.BaristaDtos
+﻿namespace BaristaCoffee.Dto.BaristaDtos
 {
     public class GetAllBaristaDto
     {
