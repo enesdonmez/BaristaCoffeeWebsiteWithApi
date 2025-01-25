@@ -13,6 +13,15 @@ namespace BaristaCoffee.API.Repositories.AboutRepositories
             _dbConnection = dbConnection;
         }
 
+        public async Task CreateAbout(CreateAboutDto createAboutDto)
+        {
+            string sql = "INSERT INTO About(Content, VideoUrl) VALUES(@content, @videoUrl)";
+            DynamicParameters parameters = new();
+            parameters.Add("@content", createAboutDto.Content);
+            parameters.Add("@videoUrl", createAboutDto.VideoUrl);
+            await _dbConnection.ExecuteAsync(sql, parameters);
+        }
+
         public async Task<List<GetAboutDto>> GetAbout()
         {
             var sql = "SELECT * FROM About";
