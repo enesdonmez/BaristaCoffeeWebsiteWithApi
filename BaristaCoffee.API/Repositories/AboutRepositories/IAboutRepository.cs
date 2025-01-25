@@ -5,5 +5,7 @@ namespace BaristaCoffee.API.Repositories.AboutRepositories
     public interface IAboutRepository
     {
         Task<List<GetAboutDto>> GetAbout();
+
+        Task CreateAbout (CreateAboutDto createAboutDto);
     }
 }
