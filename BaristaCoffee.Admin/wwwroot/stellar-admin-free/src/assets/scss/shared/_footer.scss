@@ -1,0 +1,31 @@
+/* Footer */
+
+.footer {
+  background: $footer-bg;
+  color: $footer-color;
+  padding: 1.5rem 1.5rem 1.5rem;
+  transition: all $action-transition-duration $action-transition-timing-function;
+  -moz-transition: all $action-transition-duration $action-transition-timing-function;
+  -webkit-transition: all $action-transition-duration $action-transition-timing-function;
+  -ms-transition: all $action-transition-duration $action-transition-timing-function;
+  font-size: 14px;
+  font-family: $type1;
+  a {
+    color: inherit;
+    font-size: inherit;
+    padding: 0 5px;
+
+    &:first-of-type {
+      border-right: 1px solid $footer-color;
+
+      .rtl & {
+        border-right: none;
+        border-left: 1px solid $footer-color;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    margin-left: 0;
+    width: 100%;
+  }
+}

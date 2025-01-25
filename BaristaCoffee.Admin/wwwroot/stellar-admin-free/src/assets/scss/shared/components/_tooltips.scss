@@ -1,0 +1,62 @@
+/* Tooltips */
+
+.tooltip-static-demo {
+	.tooltip {
+		position: relative;
+		display: inline-block;
+		opacity: 1;
+		margin: 0 10px 10px 0;
+		z-index: 10;
+	}
+	.bs-tooltip-bottom-demo,
+	.bs-tooltip-top-demo {
+		.arrow {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	.bs-tooltip-right-demo,
+	.bs-tooltip-left-demo {
+		.arrow {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.bs-tooltip-right-demo {
+		.arrow {
+			left: 1px;
+		}
+	}
+	.bs-tooltip-left-demo {
+		.arrow {
+			right: 1px;
+		}
+	}
+	.bs-tooltip-top-demo {
+		.arrow {
+			bottom: 1px;
+		}
+	}
+	.bs-tooltip-bottom-demo {
+		.arrow {
+			top: 1px;
+		}
+	}
+}
+
+.tooltip {
+	font-size: $tooltip-font-size;
+	min-width: 5.625rem;
+	.tooltip-inner {
+		font-family: $type1;
+	}
+	z-index: 1029;
+}
+
+@each $color, $value in $theme-colors {
+	.tooltip-#{$color} {
+	  @include tooltip-variant($value);
+	}
+}
+  

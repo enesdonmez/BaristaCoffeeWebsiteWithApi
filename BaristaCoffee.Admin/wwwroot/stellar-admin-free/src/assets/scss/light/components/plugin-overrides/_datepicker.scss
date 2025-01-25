@@ -1,0 +1,323 @@
+/* Datepicker */
+
+.datepicker.datepicker-dropdown,
+.datepicker.datepicker-inline {
+	padding: 0 25px;
+	width: 30%;
+	max-width: 500px;
+	min-width: 250px;
+	.datepicker-days {
+		table.table-condensed {
+			thead {
+				tr {
+					th {
+						text-align: center;
+						padding: .5rem 0;
+						&.prev {
+								color: map-get($colors , 'gray');
+								padding-bottom: 1rem;
+								padding-top: 1rem;
+								text-align: left;
+								background: transparent;
+							}
+						
+							&.datepicker-switch {
+								color: map-get($colors , 'gray');
+								background: transparent;
+								padding-bottom: 1rem;
+								padding-top: 1rem;
+								font-size: 1rem;
+								font-weight: 600;
+							}
+						
+							&.next {
+								color: grey;
+								padding-bottom: 1rem;
+								padding-top: 1rem;
+								text-align: right;
+								background: transparent;
+							}
+						
+							&.dow {
+								font-weight: 400;
+								color: map-get($colors , 'gray');
+								font-size: .875rem;
+								font-weight: initial;
+							}
+					}
+				}
+			}
+			tbody {
+				position: relative;
+				top: 13px;
+				td {
+					text-align: center;
+					&.day {
+						font-size: .9375rem;
+						padding: .5rem 0;
+						color: $gray;
+						&:hover {
+							background: $white;
+						}
+						&.active {
+							color:#fff;
+							background:transparent;
+							position: relative;
+							z-index: 1;
+							&:before {
+								content: "";
+								width: 30px;
+								height: 30px;
+								background: $success;
+								@include border-radius(100%);
+								display: block;
+								margin: auto;
+								vertical-align: middle;
+								position: absolute;
+								top: 1px;
+								bottom: 1px;
+								z-index: -1;
+								left: 0;
+								right: 0;
+							}
+						}
+						&.today {
+							color:#fff;
+							background:transparent;
+							position: relative;
+							z-index: 1;
+							&:before {
+								content: "";
+								width: 30px;
+								height: 30px;
+								background: $info;
+								@include border-radius(100%);
+								display: block;
+								margin: auto;
+								vertical-align: middle;
+								position: absolute;
+								top: 1px;
+								bottom: 1px;
+								z-index: -1;
+								left: 0;
+								right: 0;
+							}
+						}
+					}
+					&.old.day {
+						color: darken($gray-lightest,4.5%);
+					}
+
+					&.range-start,
+					&.range-end {
+					  background: transparent;
+					  position: relative;
+						&::before {
+							content: "";
+							width: 28px;
+							height: 28px;
+							background: rgba($success, .2);
+							border-radius: 4px;
+							display: block;
+							margin: auto;
+							vertical-align: middle;
+							position: absolute;
+							top: 6px;
+							z-index: -1;
+							left: 0;
+							right: 0;
+						}
+					}
+					&.range {
+						position: relative;
+						background: transparent;
+						&::before {
+							content: "";
+							width: 28px;
+							height: 28px;
+							background: #eee;
+							border-radius: 4px;
+							display: block;
+							margin: auto;
+							vertical-align: middle;
+							position: absolute;
+							top: 6px;
+							z-index: -1;
+							left: 0;
+							right: 0;
+						}
+					}
+
+				}
+			}
+		}
+	}
+	.datepicker-days,
+	.datepicker-months,
+	.datepicker-years,
+	.datepicker-decades,
+	.datepicker-centuries {
+		padding: .8rem .7rem;		
+		table.table-condensed {
+			width: 100%;
+		}
+	}
+}
+.datepicker.datepicker-inline{
+	width:100%;
+	max-width: 100%;
+	min-width: 250px;
+	thead{
+		tr{
+			th{
+				&.prev{
+					color:grey;
+					padding-bottom:0.5rem;
+					padding-top:0.5rem;
+				}
+				&.datepicker-switch{
+					color: $primary;
+					padding-bottom:0.5rem;
+					padding-top:0.5rem;
+				}
+				&.next{
+					color:grey;
+					padding-bottom:0.5rem;
+					padding-top:0.5rem;
+				}
+				&.dow{
+
+				}
+			}
+		}
+	}
+}
+.datepicker {
+	> div {
+		display: initial;
+	}
+}
+.datepicker-custom {
+	width: 100%;
+	padding: 0;
+	.datepicker {
+		&.datepicker-inline {
+			.datepicker-days,
+			.datepicker-months,
+			.datepicker-years,
+			.datepicker-decades,
+			.datepicker-centuries{
+				.table-condensed {
+					margin-top: 40px;
+					width: 100%;
+		
+					thead {
+						tr {
+							&:nth-child(2) {
+								position: absolute;
+								top: 30px;
+								left: 35px;
+								right: 35px;
+								display: flex;
+		
+								th {
+									padding: 0;
+								}
+		
+								.datepicker-switch {
+									order: -1;
+									font-size: 18px ;
+									font-weight: 600 ;
+									color: inherit ;
+									text-align: left;
+		
+									&:hover {
+										background-color: transparent;
+									}
+		
+									.rtl & {
+										text-align: right;
+									}
+								}
+		
+								.prev {
+									margin-left: auto;
+									font-size: 24px;
+									width: 30px;
+									background: none;
+		
+									.rtl & {
+										margin-left: 0;
+										order: 1;
+									}
+								}
+								.next {
+									font-size: 24px;
+									width: 30px;
+									background: none;
+		
+									.rtl & {
+										margin-right: auto;
+									}
+								}
+							}
+		
+							&:nth-child(3) {
+								th.dow {
+									font-weight: 600;
+									font-size: 14px;
+									color: #a7afb7;
+									padding-bottom: 25px;
+									text-align: center;
+								}
+		
+								border-bottom: solid 1px $border-color;
+							}
+						}
+					}
+		
+					tbody {
+						tr:first-child {
+							td {
+								padding-top: 20px;
+							}
+						}
+					}
+				}
+			}
+	
+			.datepicker-days {
+				.table-condensed {
+					tbody {
+						tr {
+							td.day {
+								padding: 15px 10px;
+								text-align: center;
+								font-size: 12px;
+								color: #111111;
+	
+								&.old, &.new {
+									color: #a7afb7;
+								}
+	
+								&.active {
+									&:before {
+										// top: 4px;
+										left: 0;
+										right: 0;
+									}
+								}
+							}
+	
+							&:first-child {
+								td.day{
+									padding-top: 25px;
+								}
+							}
+						}
+					}
+				}      
+			}
+		}
+	}
+}
