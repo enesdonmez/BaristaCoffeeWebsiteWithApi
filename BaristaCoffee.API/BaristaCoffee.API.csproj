@@ -13,4 +13,8 @@
     <PackageReference Include="Scalar.AspNetCore" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BaristaCoffee.Dto\BaristaCoffee.Dto.csproj" />
+  </ItemGroup>
+
 </Project>
