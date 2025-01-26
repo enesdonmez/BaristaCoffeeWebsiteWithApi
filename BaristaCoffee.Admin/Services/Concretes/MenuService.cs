@@ -1,8 +1,8 @@
 ﻿using BaristaCoffee.Dto.MenuDtos;
-using BaristaCoffee.Web.Services.Interfaces;
+using BaristaCoffee.Admin.Services.Interfaces;
 using Newtonsoft.Json;
 
-namespace BaristaCoffee.Web.Services.Concretes
+namespace BaristaCoffee.Admin.Services.Concretes
 {
     public class MenuService : IMenuService
     {

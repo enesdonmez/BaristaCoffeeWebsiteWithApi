@@ -1,6 +1,6 @@
 ﻿using BaristaCoffee.Dto.MenuDtos;
 
-namespace BaristaCoffee.Web.Services.Interfaces
+namespace BaristaCoffee.Admin.Services.Interfaces
 {
     public interface IMenuService
     {

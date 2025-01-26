@@ -1,6 +1,6 @@
 ﻿using BaristaCoffee.Dto.TestimonialDtos;
 
-namespace BaristaCoffee.Web.Services.Interfaces
+namespace BaristaCoffee.Admin.Services.Interfaces
 {
     public interface ITestimonialService
     {

@@ -1,7 +1,7 @@
 ﻿using BaristaCoffee.Dto.TestimonialDtos;
-using BaristaCoffee.Web.Services.Interfaces;
+using BaristaCoffee.Admin.Services.Interfaces;
 
-namespace BaristaCoffee.Web.Services.Concretes
+namespace BaristaCoffee.Admin.Services.Concretes
 {
     public class TestimonialService : ITestimonialService
     {

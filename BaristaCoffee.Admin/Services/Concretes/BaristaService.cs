@@ -21,7 +21,7 @@ namespace BaristaCoffee.Admin.Services.Concretes
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<GetAllBaristaDto>>(jsonData);
+                return JsonConvert.DeserializeObject<List<GetAllBaristaDto>>(jsonData)!;
             }
 
             return new List<GetAllBaristaDto>();

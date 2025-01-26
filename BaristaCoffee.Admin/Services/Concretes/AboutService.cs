@@ -2,7 +2,7 @@
 using BaristaCoffee.Admin.Services.Interfaces;
 using Newtonsoft.Json;
 
-namespace BaristaCoffee.Web.Services.Concretes
+namespace BaristaCoffee.Admin.Services.Concretes
 {
     public class AboutService : IAboutService
     {

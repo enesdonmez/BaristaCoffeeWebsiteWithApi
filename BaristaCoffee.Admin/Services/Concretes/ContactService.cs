@@ -1,8 +1,10 @@
 ﻿using BaristaCoffee.Dto.ContactDtos;
-using BaristaCoffee.Web.Services.Interfaces;
 using System.Net;
+using BaristaCoffee.Admin.Services.Interfaces;
+using BaristaCoffee.Dto.BaristaDtos;
+using Newtonsoft.Json;
 
-namespace BaristaCoffee.Web.Services.Concretes
+namespace BaristaCoffee.Admin.Services.Concretes
 {
     public class ContactService : IContactService
     {
@@ -22,6 +24,19 @@ namespace BaristaCoffee.Web.Services.Concretes
                
             }
 
+        }
+
+        public async Task<List<GetAllContactDto>> GetAllContactAsync()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync("https://localhost:7066/api/Contact/GetAllContact");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<GetAllContactDto>>(result)!;
+            }
+
+            return new List<GetAllContactDto>();
         }
     }
 }
