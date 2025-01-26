@@ -26,5 +26,12 @@ namespace BaristaCoffee.API.Repositories.ContactRepositories
 
 
         }
+
+        public async Task<List<GetAllContactDto>> GetAllContactAsync()
+        {
+            var sql = "select * from contact";
+            var contactList = await _connection.QueryAsync<GetAllContactDto>(sql);
+            return contactList.ToList();
+        }
     }
 }

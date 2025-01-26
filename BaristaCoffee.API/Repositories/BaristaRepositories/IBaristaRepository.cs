@@ -6,6 +6,11 @@ namespace BaristaCoffee.API.Repositories.BaristaRepositories
     {
         Task<List<GetAllBaristaDto>> GetAllBaristaAsync();
 
-        Task CreateBarista(CreateBaristaDto createBaristaDto);
+        Task CreateBaristaAsync(CreateBaristaDto createBaristaDto);
+
+        Task DeleteBaristaAsync(int id);
+
+        Task UpdateBaristaAsync(UpdateBaristaDto updateBaristaDto);
+
     }
 }

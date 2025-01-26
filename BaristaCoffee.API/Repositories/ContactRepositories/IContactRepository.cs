@@ -5,5 +5,9 @@ namespace BaristaCoffee.API.Repositories.ContactRepositories
     public interface IContactRepository
     {
         Task CreateContactAsync(CreateContactDto createContactDto);
+
+        Task<List<GetAllContactDto>> GetAllContactAsync();
+
+
     }
 }

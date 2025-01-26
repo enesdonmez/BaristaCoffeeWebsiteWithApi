@@ -6,6 +6,10 @@ namespace BaristaCoffee.API.Repositories.MenuRepositories
     {
         Task<List<GetAllMenuDto>> GetAllMenuAsync();
 
-        Task CreateMenuItem(CreateMenuItemDto createMenuItemDto);
+        Task CreateMenuItemAsync(CreateMenuItemDto createMenuItemDto);
+
+        Task UpdateMenuItemAsync(UpdateMenuDto updateMenuItemDto);
+
+        Task DeleteMenuItemAsync(int id);
     }
 }

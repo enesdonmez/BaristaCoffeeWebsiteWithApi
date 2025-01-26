@@ -13,7 +13,7 @@ namespace BaristaCoffee.API.Repositories.BaristaRepositories
             _connection = connection;
         }
 
-        public async Task CreateBarista(CreateBaristaDto createBaristaDto)
+        public async Task CreateBaristaAsync(CreateBaristaDto createBaristaDto)
         {
             var sql = "INSERT INTO Barista (BaristaName, ImageUrl, Type) VALUES (@Name, @Image, @Type)";
             DynamicParameters parameters = new();
@@ -24,11 +24,31 @@ namespace BaristaCoffee.API.Repositories.BaristaRepositories
 
         }
 
+        public Task DeleteBaristaAsync(int id)
+        {
+            var sql = "DELETE FROM Barista WHERE Id = @Id";
+            DynamicParameters parameters = new();
+            parameters.Add("@Id", id);
+            return _connection.ExecuteAsync(sql, parameters);
+        }
+
         public async Task<List<GetAllBaristaDto>> GetAllBaristaAsync()
         {
             var sql = "SELECT * FROM Barista";
             var result = await _connection.QueryAsync<GetAllBaristaDto>(sql);
             return result.ToList();
+        }
+
+        public Task UpdateBaristaAsync(UpdateBaristaDto updateBaristaDto)
+        {
+            var sql = "UPDATE Barista SET BaristaName = @Name, ImageUrl = @Image, Type = @Type WHERE Id = @Id";
+            DynamicParameters parameters = new();
+            parameters.Add("@Id", updateBaristaDto.Id);
+            parameters.Add("@Name", updateBaristaDto.Name);
+            parameters.Add("@Image", updateBaristaDto.Image);
+            parameters.Add("@Type", updateBaristaDto.Type);
+            return _connection.ExecuteAsync(sql, parameters);
+
         }
     }
 }
