@@ -1,5 +1,6 @@
 using BaristaCoffee.API.Repositories.AboutRepositories;
 using BaristaCoffee.API.Repositories.BaristaRepositories;
+using BaristaCoffee.API.Repositories.BaristaTypeRepositories;
 using BaristaCoffee.API.Repositories.ContactRepositories;
 using BaristaCoffee.API.Repositories.MenuRepositories;
 using BaristaCoffee.API.Repositories.TestimonialRepositories;
@@ -25,6 +26,7 @@ namespace BaristaCoffee.API
             builder.Services.AddScoped<IAboutRepository, AboutRepository>();
             builder.Services.AddScoped<IMenuRepository, MenuRepository>();
             builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+            builder.Services.AddScoped<IBaristaTypeRepository, BaristaTypeRepository>();
 
             var app = builder.Build();
 

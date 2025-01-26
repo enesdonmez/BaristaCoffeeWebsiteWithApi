@@ -14,6 +14,10 @@ namespace BaristaCoffee.Admin
             builder.Services.AddHttpClient();
 
             builder.Services.AddScoped<IBaristaService,BaristaService>();
+            builder.Services.AddScoped<IContactService, ContactService>();
+            builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+            builder.Services.AddScoped<IMenuService, MenuService>();
+            builder.Services.AddScoped<IAboutService, AboutService>();
 
             var app = builder.Build();
 
