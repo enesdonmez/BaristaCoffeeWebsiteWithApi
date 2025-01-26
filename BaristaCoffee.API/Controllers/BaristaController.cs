@@ -25,8 +25,22 @@ namespace BaristaCoffee.API.Controllers
         [HttpPost("CreateBarista")]
         public async Task<IActionResult> CreateBarista(CreateBaristaDto createBaristaDto)
         {
-            await _baristaRepository.CreateBarista(createBaristaDto);
+            await _baristaRepository.CreateBaristaAsync(createBaristaDto);
             return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpDelete("DeleteBarista/{id}")]
+        public async Task<IActionResult> DeleteBarista(int id)
+        {
+            await _baristaRepository.DeleteBaristaAsync(id);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpPut("UpdateBarista")]
+        public async Task<IActionResult> UpdateBarista(UpdateBaristaDto updateBaristaDto)
+        {
+            await _baristaRepository.UpdateBaristaAsync(updateBaristaDto);
+            return StatusCode(StatusCodes.Status200OK);
         }
     }
 }

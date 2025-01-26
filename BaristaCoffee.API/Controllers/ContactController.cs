@@ -15,5 +15,12 @@ namespace BaristaCoffee.API.Controllers
             await _contactRepository.CreateContactAsync(createContactDto);
             return StatusCode(StatusCodes.Status201Created);
         }
+
+        [HttpGet("GetAllContact")]
+        public async Task<IActionResult> GetAllContact()
+        {
+            var result = await _contactRepository.GetAllContactAsync();
+            return Ok(result);
+        }
     }
 }

@@ -22,5 +22,19 @@ namespace BaristaCoffee.API.Controllers
             await _testimonialRepository.CreateTestimonial(createTestimonialDto);
             return StatusCode(StatusCodes.Status201Created);
         }
+
+        [HttpPut("UpdateTestimonial")]
+        public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto)
+        {
+            await _testimonialRepository.UpdateTestimonialAsync(updateTestimonialDto);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpDelete("DeleteTestimonial/{id}")]
+        public async Task<IActionResult> DeleteTestimonial(int id)
+        {
+            await _testimonialRepository.DeleteTestimonialAsync(id);
+            return StatusCode(StatusCodes.Status200OK);
+        }
     }
 }

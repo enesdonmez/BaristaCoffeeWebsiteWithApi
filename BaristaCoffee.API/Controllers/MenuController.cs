@@ -18,8 +18,22 @@ namespace BaristaCoffee.API.Controllers
         [HttpPost("CreateMenuItem")]
         public async Task<IActionResult> CreateMenuItem(CreateMenuItemDto createMenuItemDto)
         {
-            await _menuRepository.CreateMenuItem(createMenuItemDto);
-            return Ok("menüye ekleme başarılı.");
+            await _menuRepository.CreateMenuItemAsync(createMenuItemDto);
+            return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpPut("UpdateMenuItem")]
+        public async Task<IActionResult> UpdateMenuItem(UpdateMenuDto updateMenuItemDto)
+        {
+            await _menuRepository.UpdateMenuItemAsync(updateMenuItemDto);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpDelete("DeleteMenuItem/{id}")]
+        public async Task<IActionResult> DeleteMenuItem(int id)
+        {
+            await _menuRepository.DeleteMenuItemAsync(id);
+            return StatusCode(StatusCodes.Status200OK);
         }
     }
 }
