@@ -5,5 +5,7 @@ namespace BaristaCoffee.Admin.Services.Interfaces
     public interface IBaristaService
     {
         Task<List<GetAllBaristaDto>> GetAllBaristaAsync();
+
+        Task CreateBaristaAsync(CreateBaristaDto createBaristaDto);
     }
 }

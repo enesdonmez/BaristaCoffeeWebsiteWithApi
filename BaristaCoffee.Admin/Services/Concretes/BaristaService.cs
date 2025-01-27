@@ -13,6 +13,11 @@ namespace BaristaCoffee.Admin.Services.Concretes
             _httpClientFactory = httpClientFactory;
         }
 
+        public Task CreateBaristaAsync(CreateBaristaDto createBaristaDto)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<GetAllBaristaDto>> GetAllBaristaAsync()
         {
             var client = _httpClientFactory.CreateClient();
