@@ -1,0 +1,40 @@
+﻿@page "/Barista/AddBarista"
+@model BaristaCoffee.Admin.Pages.AddBaristaModel
+
+@{
+}
+
+
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Horizontal Form</h4>
+            <p class="card-description"> Horizontal form layout </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label">Barista Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Barista Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="image" class="col-sm-3 col-form-label">Image</label>
+                    <div class="col-sm-9">
+                        <input type="file" class="form-control" id="image" name="image" placeholder="image">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="type" class="col-sm-3 col-form-label">Type</label>
+                    <div class="col-sm-9">
+                        <select id="type">
+                            <option value="value" name="type">text</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
