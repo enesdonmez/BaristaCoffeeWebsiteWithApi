@@ -15,7 +15,7 @@ namespace BaristaCoffee.Admin.Services.Concretes
         public async Task<List<GetAllTestimonialDto>> GetAllTestimonialsAsync()
         {
            var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("https://localhost:5001/api/testimonial/GetAllTestimonial");
+            var response = await client.GetAsync("https://localhost:7066/api/testimonial/GetAllTestimonial");
             if (response.IsSuccessStatusCode)
             {
                 var testimonials = await response.Content.ReadFromJsonAsync<List<GetAllTestimonialDto>>();
