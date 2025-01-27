@@ -8,8 +8,8 @@ namespace BaristaCoffee.Dto.BaristaDtos
 {
     public class CreateBaristaDto
     {
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public string Type { get; set; }
+        public string? Name { get; set; }
+        public string? Image { get; set; }
+        public string? Type { get; set; }
     }
 }
