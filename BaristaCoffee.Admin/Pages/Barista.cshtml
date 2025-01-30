@@ -30,6 +30,7 @@
                                         <th> Image </th>
                                         <th> Type </th>
                                         <th> IsActive </th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 @foreach (var item in Model.Baristas)
@@ -46,6 +47,10 @@
                                             </td>
                                             <td> Barista </td>
                                             <td> Active </td>
+                                            <td>
+                                                <button class="btn btn-success btn-sm">Update</button>
+                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 }

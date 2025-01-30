@@ -15,7 +15,7 @@ public class IndexModel : PageModel
     private readonly ITestimonialService _testimonialService;
     private readonly IContactService _contactService;
 
-    public IndexViewModel ViewModel { get; set; } = new IndexViewModel();
+    public IndexViewModel ViewModel = new IndexViewModel();
 
     public IndexModel(IHttpClientFactory httpClientFactory, IAboutService aboutService, IMenuService menuService, IBaristaService baristaService, ITestimonialService testimonialService, IContactService contactService)
     {
@@ -31,10 +31,17 @@ public class IndexModel : PageModel
     {
         try
         {
-            ViewModel.About = await _aboutService.GetAboutListAsync();
-            ViewModel.Menu = await _menuService.GetAllMenuAsync();
-            ViewModel.Barista = await _baristaService.GetAllBaristaAsync();
-            ViewModel.Testimonial = await _testimonialService.GetAllTestimonialsAsync();
+            var aboutTask =  _aboutService.GetAboutListAsync();
+            var menuTask =  _menuService.GetAllMenuAsync();
+            var baristaTask =  _baristaService.GetAllBaristaAsync();
+            var testimonialTask =  _testimonialService.GetAllTestimonialsAsync();
+
+            await Task.WhenAll(aboutTask, menuTask, baristaTask, testimonialTask);
+
+            ViewModel.About = aboutTask.Result;
+            ViewModel.Menu = menuTask.Result;
+            ViewModel.Barista = baristaTask.Result;
+            ViewModel.Testimonial = testimonialTask.Result;
 
         }
         catch (Exception ex)

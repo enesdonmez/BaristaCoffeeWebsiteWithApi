@@ -28,7 +28,9 @@
                                     <th>Id</th>
                                     <th>ProductName</th>
                                     <th>Description</th>
+                                    <th>Category</th>
                                     <th>Price</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             @foreach (var item in Model.MenuList)
@@ -39,7 +41,12 @@
                                         <td>@item.Id</td>
                                         <td>@item.ProductName</td>
                                         <td>@item.Description</td>
-                                        <td><label class="badge badge-danger">@item.Price</label></td>
+                                        <td>@item.CategoryName</td>
+                                        <td><label class="badge badge-dark">@item.Price</label></td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm">Update</button>
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </td>
                                     </tr>
 
                                 </tbody>
@@ -52,3 +59,4 @@
         </div>
     </div>
 }
+

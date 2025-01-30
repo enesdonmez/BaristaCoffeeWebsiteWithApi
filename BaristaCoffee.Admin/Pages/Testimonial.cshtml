@@ -31,6 +31,7 @@
                                         <th> Image </th>
                                         <th> Comment </th>
                                         <th> Rating </th>
+                                        <th> Actions </th>
                                     </tr>
                                 </thead>
                                 @foreach (var item in Model.TestimonialList)
@@ -47,6 +48,10 @@
                                             </td>
                                             <td> @item.Comment </td>
                                             <td> @item.Rating </td>
+                                            <td>
+                                                <button class="btn btn-success btn-sm">Update</button>
+                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 }
