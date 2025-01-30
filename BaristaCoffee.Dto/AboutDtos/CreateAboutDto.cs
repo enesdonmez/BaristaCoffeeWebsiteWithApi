@@ -8,7 +8,7 @@ namespace BaristaCoffee.Dto.AboutDtos
 {
     public class CreateAboutDto
     {
-        public string Content { get; set; }
-        public string VideoUrl { get; set; }
+        public string? Content { get; set; }
+        public string? VideoUrl { get; set; }
     }
 }
