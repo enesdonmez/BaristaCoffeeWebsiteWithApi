@@ -13,31 +13,29 @@ namespace BaristaCoffee.API.Repositories.MenuRepositories
             param.Add("productName", createMenuItemDto.ProductName);
             param.Add("@description", createMenuItemDto.Description);
             param.Add("@price", createMenuItemDto.Price);
+            param.Add("@categoryId", createMenuItemDto.CategoryId);
 
             await _dbConnection.ExecuteAsync(sql, param, commandType: CommandType.StoredProcedure);
         }
 
-        public Task DeleteMenuItem(int id)
+        public async Task DeleteMenuItemAsync(int id)
         {
             var sql = "DELETE FROM Menu WHERE Id = @Id";
             DynamicParameters param = new DynamicParameters();
             param.Add("@Id", id);
-            return _dbConnection.ExecuteAsync(sql, param);
-        }
-
-        public Task DeleteMenuItemAsync(int id)
-        {
-            throw new NotImplementedException();
+            await _dbConnection.ExecuteAsync(sql, param);
         }
 
         public async Task<List<GetAllMenuDto>> GetAllMenuAsync()
         {
-            var sql = "SELECT * FROM Menu";
+            var sql = "SELECT m.Id, m.ProductName , m.Description , m.Price , mc.CategoryName FROM Menu m" +
+                " inner join MenuCategory mc on mc.Id = m.CategoryId";
             var result = await _dbConnection.QueryAsync<GetAllMenuDto>(sql);
             return result.ToList();
         }
 
-        public Task UpdateMenuItem(UpdateMenuDto updateMenuItemDto)
+     
+        public async Task UpdateMenuItemAsync(UpdateMenuDto updateMenuItemDto)
         {
             var sql = "SP_UPDATE_MENU";
             var param = new DynamicParameters();
@@ -45,12 +43,9 @@ namespace BaristaCoffee.API.Repositories.MenuRepositories
             param.Add("@productName", updateMenuItemDto.ProductName);
             param.Add("@description", updateMenuItemDto.Description);
             param.Add("@price", updateMenuItemDto.Price);
-            return _dbConnection.ExecuteAsync(sql, param, commandType: CommandType.StoredProcedure);
-        }
+            param.Add("@categoryId", updateMenuItemDto.CategoryId);
 
-        public Task UpdateMenuItemAsync(UpdateMenuDto updateMenuItemDto)
-        {
-            throw new NotImplementedException();
+            await _dbConnection.ExecuteAsync(sql, param, commandType: CommandType.StoredProcedure);
         }
     }
 }
