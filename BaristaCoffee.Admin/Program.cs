@@ -18,6 +18,7 @@ namespace BaristaCoffee.Admin
             builder.Services.AddScoped<ITestimonialService, TestimonialService>();
             builder.Services.AddScoped<IMenuService, MenuService>();
             builder.Services.AddScoped<IAboutService, AboutService>();
+            builder.Services.AddScoped<IMenuCategoryService, MenuCategoryService>();
 
             var app = builder.Build();
 
