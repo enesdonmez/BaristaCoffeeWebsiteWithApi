@@ -2,6 +2,7 @@ using BaristaCoffee.API.Repositories.AboutRepositories;
 using BaristaCoffee.API.Repositories.BaristaRepositories;
 using BaristaCoffee.API.Repositories.BaristaTypeRepositories;
 using BaristaCoffee.API.Repositories.ContactRepositories;
+using BaristaCoffee.API.Repositories.MenuCategoryRepositories;
 using BaristaCoffee.API.Repositories.MenuRepositories;
 using BaristaCoffee.API.Repositories.TestimonialRepositories;
 using Microsoft.Data.SqlClient;
@@ -27,6 +28,7 @@ namespace BaristaCoffee.API
             builder.Services.AddScoped<IMenuRepository, MenuRepository>();
             builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             builder.Services.AddScoped<IBaristaTypeRepository, BaristaTypeRepository>();
+            builder.Services.AddScoped<IMenuCategoryRepository, MenuCategoryRepository>();
 
             var app = builder.Build();
 
@@ -34,7 +36,11 @@ namespace BaristaCoffee.API
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
-                app.MapScalarApiReference();
+                app.MapScalarApiReference(opt =>
+                {
+                    opt.Title = "Barista Coffee API";
+                    opt.Theme = ScalarTheme.Mars;
+                });
             }
 
             app.UseHttpsRedirection();
