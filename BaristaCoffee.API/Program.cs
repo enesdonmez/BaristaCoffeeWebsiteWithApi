@@ -4,6 +4,7 @@ using BaristaCoffee.API.Repositories.BaristaTypeRepositories;
 using BaristaCoffee.API.Repositories.ContactRepositories;
 using BaristaCoffee.API.Repositories.MenuCategoryRepositories;
 using BaristaCoffee.API.Repositories.MenuRepositories;
+using BaristaCoffee.API.Repositories.RezervationRepository;
 using BaristaCoffee.API.Repositories.TestimonialRepositories;
 using Microsoft.Data.SqlClient;
 using Scalar.AspNetCore;
@@ -29,6 +30,7 @@ namespace BaristaCoffee.API
             builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             builder.Services.AddScoped<IBaristaTypeRepository, BaristaTypeRepository>();
             builder.Services.AddScoped<IMenuCategoryRepository, MenuCategoryRepository>();
+            builder.Services.AddScoped<IRezervationRepository, RezervationRepository>();
 
             var app = builder.Build();
 
