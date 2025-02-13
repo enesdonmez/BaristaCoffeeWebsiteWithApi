@@ -20,8 +20,7 @@ namespace BaristaCoffee.API
 
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
-            builder.Services.AddScoped<IDbConnection>(sp =>
-                         new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IDbConnection>(sp => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IBaristaRepository, BaristaRepository>();
             builder.Services.AddScoped<IContactRepository, ContactRepository>();
@@ -31,10 +30,13 @@ namespace BaristaCoffee.API
             builder.Services.AddScoped<IBaristaTypeRepository, BaristaTypeRepository>();
             builder.Services.AddScoped<IMenuCategoryRepository, MenuCategoryRepository>();
             builder.Services.AddScoped<IRezervationRepository, RezervationRepository>();
+            builder.Services.AddResponseCompression(opt =>
+            {
+                opt.EnableForHttps = true;
+            });
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
@@ -49,8 +51,9 @@ namespace BaristaCoffee.API
 
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            app.UseResponseCompression();
 
             app.Run();
         }

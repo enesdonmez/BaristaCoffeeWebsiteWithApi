@@ -1,4 +1,4 @@
-@BaristaCoffee.API_HostAddress = http://localhost:5099
+@BaristaCoffee.API_HostAddress = https://localhost:7066
 
 GET {{BaristaCoffee.API_HostAddress}}/weatherforecast/
 Accept: application/json
@@ -6,3 +6,25 @@ Accept: application/json
 ###
 GET {{BaristaCoffee.API_HostAddress}}/api/Barista/GetAllBarista/
 Accept: application/json
+
+@id=1
+GET {{BaristaCoffee.API_HostAddress}}/api/barista/GetByIdBarista/{{id}}
+
+###
+
+PUT {{BaristaCoffee.API_HostAddress}}/api/barista/UpdateBarista
+Content-Type: application/json
+
+{
+  //UpdateBaristaDto
+}
+
+###
+
+GET {{BaristaCoffee.API_HostAddress}}/api/baristatype/GetAllBaristaTypes
+
+###
+
+GET {{BaristaCoffee.API_HostAddress}}/api/baristatype/GetBaristaTypeById/{{id}}
+
+###
