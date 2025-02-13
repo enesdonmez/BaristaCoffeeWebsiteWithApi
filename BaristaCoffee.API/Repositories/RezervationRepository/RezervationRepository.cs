@@ -23,14 +23,18 @@ namespace BaristaCoffee.API.Repositories.RezervationRepository
             parameters.Add("@rezervationDate", createRezervationDto.RezervationDate,DbType.Date);
             parameters.Add("@numberOfPeople", createRezervationDto.NumberOfPeople);
             parameters.Add("@comment", createRezervationDto.Comment);
-            parameters.Add("@isActive", createRezervationDto.IsActive);
+            parameters.Add("@isActive", true);
 
             await _connection.ExecuteAsync(sql, parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public Task DeleteRezervationAsync(int id)
+        public async Task DeleteRezervationAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = "SP_DELETE_REZERVATION";
+            DynamicParameters parameters = new();
+            parameters.Add("@id", id);
+
+            await _connection.ExecuteAsync(sql, parameters, commandType: CommandType.StoredProcedure);
         }
 
         public async Task<List<GetAllRezervationDto>> GetAllRezervationAsync()
@@ -40,14 +44,30 @@ namespace BaristaCoffee.API.Repositories.RezervationRepository
             return result.ToList();
         }
 
-        public Task<GetByIdRezervationDto> GetRezervationByIdAsync(int id)
+        public async Task<GetByIdRezervationDto> GetRezervationByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = "SP_SELECT_REZERVATION_BY_ID";
+            DynamicParameters parameters = new();
+            parameters.Add("@id", id);
+
+            var result = await _connection.QueryFirstOrDefaultAsync<GetByIdRezervationDto>(sql, parameters, commandType: CommandType.StoredProcedure);
+            return result!;
         }
 
-        public Task UpdateRezervationAsync(UpdateRezervationDto updateRezervationDto)
+        public async Task UpdateRezervationAsync(UpdateRezervationDto updateRezervationDto)
         {
-            throw new NotImplementedException();
+            var sp = "SP_UPDATE_REZERVATION";
+            DynamicParameters parameters = new();
+            parameters.Add("@id", updateRezervationDto.Id);
+            parameters.Add("@fullName", updateRezervationDto.FullName);
+            parameters.Add("@phone", updateRezervationDto.Phone);
+            parameters.Add("@rezervationTime", updateRezervationDto.RezervationTime);
+            parameters.Add("@rezervationDate", updateRezervationDto.RezervationDate, DbType.Date);
+            parameters.Add("@numberOfPeople", updateRezervationDto.NumberOfPeople);
+            parameters.Add("@comment", updateRezervationDto.Comment);
+            parameters.Add("@active", updateRezervationDto.IsActive);
+
+            await _connection.ExecuteAsync(sp, parameters, commandType: CommandType.StoredProcedure);
         }
     }
 }

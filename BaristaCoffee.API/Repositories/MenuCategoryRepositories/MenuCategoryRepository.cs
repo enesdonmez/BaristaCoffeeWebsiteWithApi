@@ -1,6 +1,7 @@
 ﻿using BaristaCoffee.Dto.MenuCategoryDtos;
 using Dapper;
 using System.Data;
+using System.Net.WebSockets;
 
 namespace BaristaCoffee.API.Repositories.MenuCategoryRepositories
 {
@@ -42,12 +43,18 @@ namespace BaristaCoffee.API.Repositories.MenuCategoryRepositories
             DynamicParameters parameters = new();
             parameters.Add("@id", id);
             var menuCategory = _dbConnection.QueryFirstOrDefaultAsync<GetByIdMenuCategoryDto>(sql, parameters);
-            return menuCategory!;
+            return menuCategory;
         }
 
-        public Task UpdateMenuCategoryAsync(UpdateMenuCategoryDto menuCategory)
+        public async Task UpdateMenuCategoryAsync(UpdateMenuCategoryDto menuCategory)
         {
-            throw new NotImplementedException();
+            var sql = "Update MenuCategory set CategoryName = @categoryName Where Id = @id";
+
+            DynamicParameters parameters = new();
+            parameters.Add("@categoryName", menuCategory.CategoryName);
+            parameters.Add("@id", menuCategory.Id);
+
+            await _dbConnection.ExecuteAsync(sql,parameters);
         }
     }
 }

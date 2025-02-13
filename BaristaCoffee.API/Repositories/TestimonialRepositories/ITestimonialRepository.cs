@@ -11,5 +11,7 @@ namespace BaristaCoffee.API.Repositories.TestimonialRepositories
         Task UpdateTestimonialAsync(UpdateTestimonialDto updateTestimonialDto);
 
         Task DeleteTestimonialAsync(int id);
+
+        Task<List<GetByIdTestimonialDto>> GetByIdTestimonialAsync(int id);
     }
 }

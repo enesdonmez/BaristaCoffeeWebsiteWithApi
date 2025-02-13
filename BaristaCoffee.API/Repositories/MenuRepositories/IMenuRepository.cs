@@ -11,5 +11,7 @@ namespace BaristaCoffee.API.Repositories.MenuRepositories
         Task UpdateMenuItemAsync(UpdateMenuDto updateMenuItemDto);
 
         Task DeleteMenuItemAsync(int id);
+
+        Task<GetByIdMenuItemDto> GetMenuItemByIdAsync(int id);
     }
 }

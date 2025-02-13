@@ -4,8 +4,12 @@ namespace BaristaCoffee.API.Repositories.AboutRepositories
 {
     public interface IAboutRepository
     {
-        Task<List<GetAboutDto>> GetAbout();
+        Task<List<GetAboutDto>> GetAboutAsync(CancellationToken cancellationToken);
 
-        Task CreateAbout (CreateAboutDto createAboutDto);
+        Task CreateAboutAsync (CreateAboutDto createAboutDto , CancellationToken cancellationToken);
+
+        Task UpdateAboutAsync(UpdateAboutDto updateAboutDto, CancellationToken cancellationToken);
+
+        Task DeleteAboutAsync(int id,CancellationToken cancellationToken);
     }
 }

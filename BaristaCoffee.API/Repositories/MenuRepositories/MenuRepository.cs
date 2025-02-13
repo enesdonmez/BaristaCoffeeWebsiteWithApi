@@ -34,7 +34,18 @@ namespace BaristaCoffee.API.Repositories.MenuRepositories
             return result.ToList();
         }
 
-     
+        public async Task<GetByIdMenuItemDto> GetMenuItemByIdAsync(int id)
+        {
+            var sql = "SELECT m.Id, m.ProductName , m.Description , m.Price , mc.CategoryName FROM Menu m" +
+                " inner join MenuCategory mc on mc.Id = m.CategoryId where m.Id = @id";
+
+            var param = new DynamicParameters();
+            param.Add("@id", id);
+
+            var result = await _dbConnection.QueryFirstOrDefaultAsync<GetByIdMenuItemDto>(sql,param);
+            return result;
+        }
+
         public async Task UpdateMenuItemAsync(UpdateMenuDto updateMenuItemDto)
         {
             var sql = "SP_UPDATE_MENU";

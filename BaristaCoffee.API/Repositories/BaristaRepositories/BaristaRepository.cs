@@ -39,6 +39,16 @@ namespace BaristaCoffee.API.Repositories.BaristaRepositories
             return result.ToList();
         }
 
+        public async Task<List<GetByIdBaristaDto>> GetBaristaByIdAsync(int id)
+        {
+            var sql = "SELECT * FROM Barista WHERE Id = @Id";
+            DynamicParameters parameters = new();
+            parameters.Add("@Id", id);
+            var result = await _connection.QueryAsync<GetByIdBaristaDto>(sql,parameters);
+
+            return result.ToList();
+        }
+
         public Task UpdateBaristaAsync(UpdateBaristaDto updateBaristaDto)
         {
             var sql = "UPDATE Barista SET BaristaName = @Name, ImageUrl = @Image, Type = @Type WHERE Id = @Id";

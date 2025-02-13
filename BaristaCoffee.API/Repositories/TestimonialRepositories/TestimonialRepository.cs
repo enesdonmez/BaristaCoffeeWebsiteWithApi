@@ -36,6 +36,18 @@ namespace BaristaCoffee.API.Repositories.TestimonialRepositories
             return result.ToList();
         }
 
+        public async Task<List<GetByIdTestimonialDto>> GetByIdTestimonialAsync(int id)
+        {
+            var sql = "SELECT TestimonialName,Comment,Rating,Image FROM Testimonial WHERE Id = @Id";
+
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+
+            var result = await _dbConnection.QueryAsync<GetByIdTestimonialDto>(sql);
+
+            return result.ToList();
+        }
+
         public Task UpdateTestimonialAsync(UpdateTestimonialDto updateTestimonialDto)
         {
             var sql = "SP_UPDATE_TESTIMONIAL";

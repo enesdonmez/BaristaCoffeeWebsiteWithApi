@@ -12,5 +12,7 @@ namespace BaristaCoffee.API.Repositories.BaristaRepositories
 
         Task UpdateBaristaAsync(UpdateBaristaDto updateBaristaDto);
 
+        Task<List<GetByIdBaristaDto>> GetBaristaByIdAsync(int id);
+
     }
 }
