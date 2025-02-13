@@ -36,5 +36,12 @@ namespace BaristaCoffee.API.Controllers
             await _testimonialRepository.DeleteTestimonialAsync(id);
             return StatusCode(StatusCodes.Status200OK);
         }
+
+        [HttpGet("GetByIdTestimonial/{id}")]
+        public async Task<IActionResult> GetByIdTestimonial(int id)
+        {
+            var testimonials = await _testimonialRepository.GetByIdTestimonialAsync(id);
+            return Ok(testimonials);
+        }
     }
 }

@@ -35,5 +35,19 @@ namespace BaristaCoffee.API.Controllers
             await _rezervationRepository.CreateRezervationAsync(createRezervationDto);
             return StatusCode(StatusCodes.Status201Created);
         }
+
+        [HttpPut("UpdateRezervation")]
+        public async Task<IActionResult> UpdateRezervationAsync(UpdateRezervationDto updateRezervationDto)
+        {
+            await _rezervationRepository.UpdateRezervationAsync(updateRezervationDto);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpDelete("DeleteRezervation/{id}")]
+        public async Task<IActionResult> DeleteRezervationAsync(int id)
+        {
+            await _rezervationRepository.DeleteRezervationAsync(id);
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
     }
 }

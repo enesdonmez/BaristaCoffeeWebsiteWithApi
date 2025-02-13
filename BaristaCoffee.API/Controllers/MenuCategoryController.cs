@@ -47,6 +47,11 @@ namespace BaristaCoffee.API.Controllers
         public async Task<IActionResult> GetMenuCategoryById(int id)
         {
             var menuCategory = await _menuCategoryRepository.GetMenuCategoryByIdAsync(id);
+            if (menuCategory == null)
+            {
+                return BadRequest("Kategori Bulunamadı");
+            }
+
             return Ok(menuCategory);
         }
     }

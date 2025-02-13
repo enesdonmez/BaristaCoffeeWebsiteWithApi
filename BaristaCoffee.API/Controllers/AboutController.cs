@@ -14,18 +14,25 @@ namespace BaristaCoffee.API.Controllers
             _aboutRepository = aboutRepository;
         }
 
-        [HttpGet("GetAbout")]
-        public async Task<IActionResult> GetAbout()
+        [HttpGet("GetAllAbout")]
+        public async Task<IActionResult> GetAbout(CancellationToken cancellationToken)
         {
-            var about = await _aboutRepository.GetAbout();
+            var about = await _aboutRepository.GetAboutAsync(cancellationToken);
             return Ok(about);
         }
 
         [HttpPost("CreateAbout")]
-        public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
+        public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto, CancellationToken cancellationToken)
         {
-            await _aboutRepository.CreateAbout(createAboutDto);
+            await _aboutRepository.CreateAboutAsync(createAboutDto ,cancellationToken);
             return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpPut("UpdateAbout")]
+        public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto, CancellationToken cancellationToken)
+        {
+            await _aboutRepository.UpdateAboutAsync(updateAboutDto, cancellationToken);
+            return StatusCode(StatusCodes.Status200OK);
         }
     }
 }

@@ -35,5 +35,12 @@ namespace BaristaCoffee.API.Controllers
             await _menuRepository.DeleteMenuItemAsync(id);
             return StatusCode(StatusCodes.Status200OK);
         }
+
+        [HttpGet("GetMenuItemById/{id}")]
+        public async Task<IActionResult> GetMenuItemById(int id)
+        {
+            var menuItem = await _menuRepository.GetMenuItemByIdAsync(id);
+            return Ok(menuItem);
+        }
     }
 }
